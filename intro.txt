@@ -1,0 +1,59 @@
+Nova - Your AI Voice Assistant
+Empowering Seamless Interaction with Technology
+Summary of the Code:
+The script initializes a voice assistant called Nova.
+It listens for a wake word ("Nova") and then captures a user command.
+It can perform predefined tasks (open websites, launch applications).
+It can fetch and read out news from the internet.
+If the command is not predefined, it generates a response using an AI model.
+Uses error handling to manage speech recognition failures and API request issues.
+This script effectively integrates speech recognition, text-to-speech, API calls, NLP models, and system automation, making it a functional voice assistant.
+
+
+🚀 Meet Nova – Your AI Voice Assistant!
+Smart. Fast. Intuitive. Just Say the Word!
+🌍 Instant Web Access – No Typing, No Clicking. Just Speak!
+🔹 "Open Google" – Search anything in an instant
+🔹 "Open Facebook" – Stay connected effortlessly
+🔹 "Open YouTube" – Watch your favorite videos hands-free
+🔹 "Open Instagram" – Scroll, explore, and connect
+🔹 "Open TikTok" – Jump into endless entertainment
+🔹 "Open Anime Website" – For all anime lovers!
+
+🖥️ Full System Control – Like Magic!
+🎯 "Open Settings" – Customize your PC in seconds
+📄 "Open Notepad" – Take notes, jot down ideas
+📝 "Open Microsoft Word" / "Open Excel" – Work smarter, not harder
+📂 "Open File Explorer" – Navigate files hands-free
+🧮 "Open Calculator" – Quick math on command
+💻 "Open VS Code" – Developers, this one's for you!
+📸 "Open Camera" – No clicks, just say the word!
+
+🎵 Music Like Never Before – Your Own DJ!
+🎶 Play Nepali, Hindi & English viral songs with ease!
+🎤 Just say "Play Kale Dai" or "Play Hindi Romantic Song", and Nova delivers!
+
+📰 Real-Time News Updates – Stay Informed!
+🗞️ "Tell me the news" – Get Indian & Global headlines in seconds!
+📢 Reads the top 10 latest news stories aloud so you never miss a beat!
+
+🤖 AI-Powered Conversations – Ask Me Anything!
+💡 Nova isn’t just an assistant – it’s a thinking AI powered by Google FLAN-T5!
+❓ Need knowledge?
+🧮 Want math solutions?
+💬 Just talk to Nova – it understands & responds like a pro!
+
+🎙️ Always Listening – Say ‘Nova’ to Wake Me Up!
+⚡ No need to press buttons – Nova listens, understands, and executes instantly!
+
+🔧 Built with Cutting-Edge Tech
+✔️ AI Model: Google FLAN-T5 for human-like responses
+✔️ Voice Recognition: Smart listening with SpeechRecognition
+✔️ Text-to-Speech: Realistic voice output via Pyttsx3
+✔️ Fast Web & System Control: Powered by Webbrowser & Subprocess
+✔️ News Updates: Real-time stories via NewsAPI
+
+🔥 Nova is more than an assistant – it’s your personal AI companion. 🔥
+💡 Designed to think, listen, and respond – just like a human!
+
+🎙️ No hands, no hassle – just say it, and Nova does it!
