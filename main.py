@@ -214,41 +214,42 @@ def processCommand(command):
 
 # Main loop - listens for "Nova" and executes commands
 def nova_loop():
-    speak("Initializing Nova")  # Announces when Nova starts
-    update_status("Waiting for Wake Word...")
-    while True:
-        with sr.Microphone() as source:
-            recognizer.adjust_for_ambient_noise(source, duration=0.3)  # Adjusts for background noise
-            try:
+    try:
+        speak("Initializing Nova")
+        update_status("Waiting for Wake Word...")
+        while True:
+            with sr.Microphone() as source:
+                recognizer.adjust_for_ambient_noise(source, duration=0.3)
                 print("Listening for wake word...")
-                audio = recognizer.listen(source, timeout=5, phrase_time_limit=3)
-                word = recognizer.recognize_google(audio).strip().lower()  
-                print("Recognized wake word:", word)  
-                
-                # If wake word "Nova" is detected, listen for the actual command
-                if "nova" in word:  
-                    speak("Yaa")  # Responds when activated
-                    update_status("Listening for Command...")
-                    with sr.Microphone() as source:
-                        recognizer.adjust_for_ambient_noise(source, duration=0.2)  
-                        audio = recognizer.listen(source, timeout=10, phrase_time_limit=8)
-                        command = recognizer.recognize_google(audio).strip().lower()
-                        
-                        if len(command) < 3:
-                            speak("I didn't catch that, please repeat.")
-                            continue
-                        
-                        print("Recognized command:", command)  
-                        processCommand(command)  # Process the command
-            except sr.UnknownValueError:
-                print("Could not understand audio")
-                speak("Sorry, I didn't catch that.")
-            except sr.RequestError:
-                print("Check your internet connection")
-                speak("Check your internet connection.")
-            except sr.WaitTimeoutError:
-                print("No speech detected, retrying...")
-                continue
+                try:
+                    audio = recognizer.listen(source, timeout=5, phrase_time_limit=3)
+                    word = recognizer.recognize_google(audio).strip().lower()
+                    print("Recognized wake word:", word)
+
+                    if "nova" in word:
+                        speak("Yaa")
+                        update_status("Listening for Command...")
+                        with sr.Microphone() as source2:
+                            recognizer.adjust_for_ambient_noise(source2, duration=0.2)
+                            audio2 = recognizer.listen(source2, timeout=10, phrase_time_limit=8)
+                            command = recognizer.recognize_google(audio2).strip().lower()
+                            if len(command) >= 3:
+                                print("Recognized command:", command)
+                                processCommand(command)
+                            else:
+                                speak("I didn't catch that, please repeat.")
+                except sr.UnknownValueError:
+                    print("Could not understand audio")
+                    speak("Sorry, I didn't catch that.")
+                except sr.WaitTimeoutError:
+                    print("No speech detected.")
+                    continue
+                except sr.RequestError:
+                    print("Request error.")
+                    speak("Please check your internet connection.")
+    except Exception as e:
+        print("Error in nova_loop:", e)
+
 
 # --- Start Nova in a new thread and run the GUI ---
 nova_thread = threading.Thread(target=nova_loop)
